@@ -1,0 +1,193 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Market             |
+| Modern_Tailors     |
+| School             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> use Market;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++------------------+
+| Tables_in_Market |
++------------------+
+| Products         |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc Products;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(20) | NO   |     | NULL    |       |
+| items    | varchar(20) | NO   |     | NULL    |       |
+| quantity | int         | NO   |     | NULL    |       |
+| prize    | int         | NO   |     | NULL    |       |
+| Total    | int         | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Products;
++----+-----------------+-------------+----------+-------+-------+
+| id | name            | items       | quantity | prize | Total |
++----+-----------------+-------------+----------+-------+-------+
+|  1 | Kasi            | Tomato      |        2 |    30 |    60 |
+|  2 | Deepak          | Potato      |        5 |    45 |   255 |
+|  3 | Keerthana       | Onion       |        5 |    65 |   325 |
+|  4 | Meenu           | Cabbage     |        5 |    30 |   150 |
+|  5 | Musaraf         | Capsicum    |        5 |    40 |   200 |
+|  6 | Pavan           | Brinjal     |        6 |    45 |   270 |
+|  7 | Selva           | Avacado     |        6 |    35 |   210 |
+|  8 | Suguram         | Carrot      |        5 |    40 |   200 |
+|  9 | Vaishnavi       | Cauliflower |        3 |    45 |   135 |
+| 10 | Venkatakrishnan | chillies    |        5 |    25 |   125 |
++----+-----------------+-------------+----------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> create table imports (items varchar(20) not null,city varchar(20) not null);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> SELECT * FROM imports;
+Empty set (0.00 sec)
+
+mysql> desc imports;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| items | varchar(20) | NO   |     | NULL    |       |
+| city  | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into imports values ("Tomato","United states"),("Potato","Australia"),("Onion","china");
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM imports;
++--------+---------------+
+| items  | city          |
++--------+---------------+
+| Tomato | United states |
+| Potato | Australia     |
+| Onion  | china         |
++--------+---------------+
+3 rows in set (0.01 sec)
+
+mysql> insert into imports values ("Cabbage","china"),("capsicum","nepal"),("Brinjal","India");
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into imports values ("Avacado","India"),("Carrot","India"),("Cauliflower","India"),("Chillies","United states");
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM imports;
++-------------+---------------+
+| items       | city          |
++-------------+---------------+
+| Tomato      | United states |
+| Potato      | Australia     |
+| Onion       | china         |
+| Cabbage     | china         |
+| capsicum    | nepal         |
+| Brinjal     | India         |
+| Avacado     | India         |
+| Carrot      | India         |
+| Cauliflower | India         |
+| Chillies    | United states |
++-------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> select Products.id,Products.name,imports.items,imports.city from Products.items = imports.items;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= imports.items' at line 1
+mysql> select Products.id,Products.name,imports.items,imports.city from Products inner join imports on Products.items = imports.items;
++----+-----------------+-------------+---------------+
+| id | name            | items       | city          |
++----+-----------------+-------------+---------------+
+|  1 | Kasi            | Tomato      | United states |
+|  2 | Deepak          | Potato      | Australia     |
+|  3 | Keerthana       | Onion       | china         |
+|  4 | Meenu           | Cabbage     | china         |
+|  5 | Musaraf         | capsicum    | nepal         |
+|  6 | Pavan           | Brinjal     | India         |
+|  7 | Selva           | Avacado     | India         |
+|  8 | Suguram         | Carrot      | India         |
+|  9 | Vaishnavi       | Cauliflower | India         |
+| 10 | Venkatakrishnan | Chillies    | United states |
++----+-----------------+-------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Market             |
+| Modern_Tailors     |
+| School             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> use Market;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++------------------+
+| Tables_in_Market |
++------------------+
+| Products         |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc Prodeucts;
+ERROR 1146 (42S02): Table 'Market.Prodeucts' doesn't exist
+mysql> desc Products;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(20) | NO   |     | NULL    |       |
+| items    | varchar(20) | NO   |     | NULL    |       |
+| quantity | int         | NO   |     | NULL    |       |
+| prize    | int         | NO   |     | NULL    |       |
+| Total    | int         | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Products;
++----+-----------------+-------------+----------+-------+-------+
+| id | name            | items       | quantity | prize | Total |
++----+-----------------+-------------+----------+-------+-------+
+|  1 | Kasi            | Tomato      |        2 |    30 |    60 |
+|  2 | Deepak          | Potato      |        5 |    45 |   255 |
+|  3 | Keerthana       | Onion       |        5 |    65 |   325 |
+|  4 | Meenu           | Cabbage     |        5 |    30 |   150 |
+|  5 | Musaraf         | Capsicum    |        5 |    40 |   200 |
+|  6 | Pavan           | Brinjal     |        6 |    45 |   270 |
+|  7 | Selva           | Avacado     |        6 |    35 |   210 |
+|  8 | Suguram         | Carrot      |        5 |    40 |   200 |
+|  9 | Vaishnavi       | Cauliflower |        3 |    45 |   135 |
+| 10 | Venkatakrishnan | chillies    |        5 |    25 |   125 |
++----+-----------------+-------------+----------+-------+-------+
+10 rows in set (0.00 sec)
+
