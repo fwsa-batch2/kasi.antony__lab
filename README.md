@@ -256,3 +256,7 @@ INSERT INTO Admin_Details VALUES(2,102,"CHITRA@11");
 |     1 |      101 | Revathi@21 |
 |     2 |      102 | CHITRA@11  |
 
+
+## eer diagram
+
+![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/159673974-a2611834-6b75-450c-93d4-2e94738b0d63.png)
