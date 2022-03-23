@@ -34,7 +34,7 @@ SHOW DATABASES;
 ```
 USE Modern_Tailors_app;
 ```
-
+----
 ```
 CREATE TABLE Sign_up (Id_no INT AUTO_INCREMENT PRIMARY KEY,FUll_name VARCHAR(50) NOT NULL,User_name VARCHAR(50) UNIQUE NOT NULL,contact_number VARCHAR(20) NOT NULL,email_id VARCHAR(50) UNIQUE NOT NULL,password VARCHAR(50) NOT NULL,Confirm_password VARCHAR(50) NOT NULL);
 ```
