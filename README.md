@@ -14,5 +14,4 @@ SHOW DATABASES;
 | performance_schema |
 | studnet_academy    |
 | sys                |
-|:------------------:|
 
