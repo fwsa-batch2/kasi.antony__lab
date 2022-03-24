@@ -1,5 +1,5 @@
 ### MODERN-TAILORS
-
+PPT link : 
 
 
 ```
@@ -262,6 +262,7 @@ INSERT INTO Admin_Details VALUES(2,102,"CHITRA@11");
 ![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/159673974-a2611834-6b75-450c-93d4-2e94738b0d63.png)
 
 ## ER DIAGRAM
+
 
 ![Drawing](https://user-images.githubusercontent.com/93571046/159674701-20e33a05-cea1-4977-a57d-0e6e4c6bdaff.png)
 
