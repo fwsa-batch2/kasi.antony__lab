@@ -6,6 +6,7 @@ PPT link :
 SHOW DATABASES;
 ```
 
+
 | Database           |
 |:------------------:|
 | information_schema |
@@ -16,7 +17,7 @@ SHOW DATABASES;
 
 ----
 ```
-CREATE DATABASE Modern_Tailors_app;
+CREATE DATABASE Modern_Tailors;
 ```
 ```
 SHOW DATABASES;
@@ -24,7 +25,7 @@ SHOW DATABASES;
 
 | Database           |
 |:------------------:|
-| Modern_Tailors_app |
+| Modern_Tailors     |
 | information_schema |
 | mysql              |
 | performance_schema |
@@ -32,7 +33,7 @@ SHOW DATABASES;
 | sys                |
 
 ```
-USE Modern_Tailors_app;
+USE Modern_Tailors;
 ```
 ----
 ```
@@ -80,8 +81,12 @@ CREATE TABLE roles_details (
 ```
 
 ```
-DESC roless_details;
+DESC roles_details;
 ```
+| Field     | Type         | Null | Key | Default | Extra |
+|:---------:|:------------:|:----:|:---:|:-------:|:-----:|
+| role_Id   | int          | NO   | PRI | NULL    |       |
+| role_name | varchar(100) | NO   |     | NULL    |       |
 
 
 ```
@@ -90,10 +95,11 @@ INSERT INTO roles_details VALUES (1,"Admin"),(2,"Students"),(3,"Teacher");
 ```
 SELECT * FROM roles_details;
 ```
-| ID_no | Name      | Email_id             | Contact    | Age  |
-|:-----:|:---------:|:--------------------:|:----------:|:----:|
-|     1 | Ando raj  | andoraj12@gmail.com  | 9789255748 |   20 |
-|     2 | Kasi ando | kasiando12@gmail.com | 6381850501 |   22 |
+| role_Id | role_name |
+|:-------:|:---------:|
+|       1 | Admin     |
+|       2 | Students  |
+|       3 | Teacher   |
 
 ----
 
@@ -111,6 +117,10 @@ CREATE TABLE roles (
 ```
 DESC roles;
 ```
+| Field   | Type | Null | Key | Default | Extra |
+|:-------:|:----:|:----:|:---:|:-------:|:-----:|
+| user_id | int  | YES  | MUL | NULL    |       |
+| role_id | int  | YES  | MUL | NULL    |       |
 
 
 
@@ -121,7 +131,13 @@ INSERT INTO roles VALUES(1001,1),(1002,2),(1003,3),(1004,3),(1005,2);
 ```
 SELECT * FROM roles;
 ```
-
+| user_id | role_id |
+|:-------:|:-------:|
+|    1001 |       1 |
+|    1002 |       2 |
+|    1003 |       3 |
+|    1004 |       3 |
+|    1005 |       2 |
 
 ----
 
@@ -135,6 +151,7 @@ CREATE TABLE COURSE_DETAILS (
 DESC COURSE_DETAILS;
 ```
 
+
 ```
 insert INTO COURSE_DETAILS VALUES(101,"Gents",1003),(102,"Women",1004),(103,"Kids",1003),(104,"Sweing machine tutorial",1003);
 ```
@@ -142,10 +159,21 @@ insert INTO COURSE_DETAILS VALUES(101,"Gents",1003),(102,"Women",1004),(103,"Kid
 ```
 DESC COURSE_DETAILS;
 ```
+| Field       | Type         | Null | Key | Default | Extra |
+|:-----------:|:------------:|:----:|:---:|:-------:|:-----:|
+| course_id   | int          | NO   | PRI | NULL    |       |
+| course_name | varchar(100) | NO   |     | NULL    |       |
+| teacher_id  | int          | YES  | MUL | NULL    |       |
 
 ```
 SELECT * FROM COURSE_DETAILS;
 ```
+| course_id | course_name             | teacher_id |
+|:---------:|:-----------------------:|:----------:|
+|       101 | Gents                   |       1003 |
+|       102 | Women                   |       1004 |
+|       103 | Kids                    |       1003 |
+|       104 | Sweing machine tutorial |       1003 |
 
 ----
 ```
@@ -162,6 +190,10 @@ CREATE TABLE USER_COURSE (
 ```
 DESC USER_COURSE;
 ```
+| Field     | Type | Null | Key | Default | Extra |
+|:---------:|:----:|:----:|:---:|:-------:|:-----:|
+| user_id   | int  | YES  | MUL | NULL    |       |
+| course_id | int  | YES  | MUL | NULL    |       |
 
 ```
 insert INTO USER_COURSE VALUES(1002,101),(1002,104),(1005,103);
@@ -170,6 +202,11 @@ insert INTO USER_COURSE VALUES(1002,101),(1002,104),(1005,103);
 ```
 SELECT * FROM USER_COURSE;
 ```
+| user_id | course_id |
+|:-------:|:---------:|
+|    1002 |       101 |
+|    1002 |       104 |
+|    1005 |       103 |
 
 ----
 ```
@@ -184,19 +221,30 @@ CREATE TABLE QUERIES (
 ```
 DESC QUERIES;
 ```
+| Field    | Type         | Null | Key | Default | Extra |
+|:--------:|:------------:|:----:|:---:|:-------:|:-----:|
+| user_id  | int          | YES  | MUL | NULL    |       |
+| Messages | varchar(700) | YES  |     | NULL    |       |
 
 ```
 INSERT INTO QUERIES VALUES(1002,"All good but need some improvement in pages"),(1003,"Need some improvement in About us page");
 ```
+```
+SELECT * FROM QUERIES;
+```
+| user_id | Messages                                    |
+|:-------:|:-------------------------------------------:|
+|    1002 | All good but need some improvement in pages |
+|    1003 | Need some improvement in About us page      |
 
 
 ## EER DIAGRAM
 
-![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/160389624-58db9c5d-0f70-4c33-a640-f69a934dd480.png)
 
+![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/159673974-a2611834-6b75-450c-93d4-2e94738b0d63.png)
 ----
 ## ER DIAGRAM
 
-![ERD](https://user-images.githubusercontent.com/93571046/160389671-341102ff-b9f0-491c-8771-96bbc612916a.png)
 
+![Drawing](https://user-images.githubusercontent.com/93571046/159674701-20e33a05-cea1-4977-a57d-0e6e4c6bdaff.png)
 
