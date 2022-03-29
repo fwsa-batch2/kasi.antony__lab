@@ -240,11 +240,11 @@ SELECT * FROM QUERIES;
 
 ## EER DIAGRAM
 
+![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/160573917-c4dc1ac1-047d-4edf-9fda-15de6003696d.png)
 
-![EER DIAGRAM](https://user-images.githubusercontent.com/93571046/159673974-a2611834-6b75-450c-93d4-2e94738b0d63.png)
 ----
 ## ER DIAGRAM
 
+![ERD](https://user-images.githubusercontent.com/93571046/160574026-e1d9ae45-3bbd-45ad-9e18-44300c949b29.png)
 
-![Drawing](https://user-images.githubusercontent.com/93571046/159674701-20e33a05-cea1-4977-a57d-0e6e4c6bdaff.png)
 
