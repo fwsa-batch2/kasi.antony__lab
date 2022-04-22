@@ -1,3 +1,5 @@
+package com.JavaBacis;
+
 public class Strongnumber {
     public static void main(String[] args){
         int num=2,i,sum=0,fact,rem,temp=num;
