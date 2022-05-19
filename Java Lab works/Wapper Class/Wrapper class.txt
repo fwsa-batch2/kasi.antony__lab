@@ -1,0 +1,15 @@
+package com.kasi;
+
+public class Wrapperclass {
+    public static void main(String[] args) {
+        //autoboxing
+        int a=10;
+        Integer objB=a;
+        System.out.println("Primitive to object "+objB);
+
+        //unboxing
+        Integer b=30;
+        int objA=b;
+        System.out.println("Object to primitive "+objA);
+    }
+}
