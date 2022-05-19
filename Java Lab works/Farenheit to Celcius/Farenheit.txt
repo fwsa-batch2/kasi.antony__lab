@@ -1,0 +1,11 @@
+package com.kasi;
+
+public class Farenheit {
+    public static void main(String[] args) {
+        int a=20;
+        int total;
+        total =(((a)*9/5)+30);
+        System.out.println("The conversion of celcious is "+total);
+    }
+}
+
