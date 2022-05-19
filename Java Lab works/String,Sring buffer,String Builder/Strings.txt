@@ -1,0 +1,54 @@
+package com.kasi;
+
+public class StringExample {
+
+    public static void main(String[] args){
+        //syntax of string
+        String mychar = "Kasi antony";
+        System.out.println(mychar);
+
+        //concat()method in string
+        String myname = "Kasi ";
+        System.out.println(myname.concat("antony"));
+
+        //split()method in string
+        String mystr = "Kasi antony";
+        String[] myList = mystr.split(" ", 2);
+        for (String a : myList)
+        System.out.println(a);
+
+        //substring()method in string
+        String mylist = "Kasi antony";
+        System.out.println(mylist.substring(3,6));
+
+        //append()method in string
+        StringBuffer newstr= new StringBuffer("Kasi");
+        newstr.append(" antony");
+        System.out.println(newstr);
+
+        //insert()method in string
+        StringBuffer newlist= new StringBuffer("kasi");
+        newlist.insert(2,"anto");
+        System.out.println(newlist);
+
+        //replace()method in string
+        StringBuffer str= new StringBuffer("kasi");
+        str.replace(0,2,"an");
+        System.out.println(str);
+
+        //delete()method in string
+        StringBuffer str1= new StringBuffer("kasi");
+        str1.delete(1,3);
+        System.out.println(str1);
+
+        //reverse()method in string
+        StringBuffer str2= new StringBuffer("kasi");
+        str2.reverse();
+        System.out.println(str2);
+
+
+    }
+}
+    }
+
+
