@@ -23,9 +23,7 @@ print name
 books=["Harry potter","ponniyin selvan","Design as art"]
 author=["J.K.rowling","Kalki","Bruno munari"]
 for i in 0...books.length do
-   book=books[i]
-   autho=author[i]
-    puts "#{book} was written by #{autho}"
+    puts "#{books[i]} was written by #{author[i]}"
 end
 
 
